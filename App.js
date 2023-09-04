@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="listaContato">
+      <Stack.Navigator initialRouteName="login">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="inicio" component={InicioScreen} />
         <Stack.Screen name="cadastro" component={cadastro} />
