@@ -1,19 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, } from 'react-native';
-import { Input,  Avatar, Button  } from 'react-native-elements';
+import { Input,  Avatar, Button} from 'react-native-elements';
 import { color } from 'react-native-elements/dist/helpers';
-
+import { ListItem, Header } from 'react-native-elements'
 
 
 
 export default function alteraContato({route, navigation}) {
     return (
+      <> <Header 
+        leftComponent={{icon:'home',onPress:()=>navigation.navigate('cadastroContato'), style: {fontSize:30}}}
+       
+        centerComponent={{text:'Alterar Contatos', style:{color: 'white', fontSize: 27}}} 
+        
+        />
       <View style={[styles.container]}>
-      <Text style={{fontSize: 29,fontWeight:'bold'}}>Alteração do contato</Text>
+       
+      {/* <Text style={{fontSize: 29,fontWeight:'bold'}}>Alteração do contato</Text>
+       */}
+
       
       <Input
-  placeholder =  {route.params.nome}
+      value={route.params.nome}
+
 />
 <Input
   placeholder=  {route.params.fone}
@@ -27,7 +37,7 @@ export default function alteraContato({route, navigation}) {
 <Text> </Text>
 <Button title="excluir" type="outline" buttonStyle = {{borderColor:"red", width:100}} titleStyle = {{color: "red"}} onPress={()=>navigation.navigate('listaContato')}/>
 </View>
-    
+</>
   );
 }
 

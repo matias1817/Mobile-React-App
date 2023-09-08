@@ -39,15 +39,18 @@ function listaContato({navigation}) {
 
 
         <View >
-            <Header rightComponent={<FAB title={'+'} color='blue' size='small' onPress={()=>navigation.navigate('cadastroContato')}/> }/>
+            <Header leftComponent={
+              {icon:'home', style: {fontSize:30} , onPress:()=>navigation.navigate('cadastroContato')} }
+
+         centerComponent={{text:'Lista de Contatos', style:{color: 'white', fontSize: 27}}} rightComponent={<FAB icon='add' title={'+'} titleStyle = {{fontSize: 24}} color='transparent' size='small' onPress={()=>navigation.navigate('cadastroContato')}/> }/>
 {
 list.map((l, i) => (
-      <ListItem key={i} bottomDivider>
-        <Avatar source={{uri: l.avatar_url}}  onPress={() =>
-          navigation.navigate('alteraContato', { nome: l.name, fone: l.subtitle,email: l.email }) }/>
-        <ListItem.Content
-        >
-          <ListItem.Title>{l.name}</ListItem.Title>
+      <ListItem key={i} bottomDivider onPress={() =>
+        navigation.navigate('alteraContato', { nome: l.name, fone: l.subtitle,email: l.email }) }>
+        <Avatar source={{uri: l.avatar_url}}  />
+        
+        <ListItem.Content > 
+          <ListItem.Title >{l.name}</ListItem.Title>
           <ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>

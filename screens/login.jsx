@@ -19,7 +19,7 @@ function login({navigation}) {
   <Input
     placeholder='senha'
   />
-  <Button title="enviar" containerStyle={{width:100}} onPress={()=>navigation.navigate('')}/>
+  <Button title="enviar" containerStyle={{width:100}} onPress={()=>navigation.navigate('listaContato')}/>
   <Text> </Text>
   <Button title="cadastro" containerStyle={{width:100}} onPress={()=>navigation.navigate('cadastro')}/>
   </View>

@@ -18,12 +18,12 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="login">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="inicio" component={InicioScreen} />
-        <Stack.Screen name="cadastro" component={cadastro} />
-        <Stack.Screen name="login" component={login} />
-        <Stack.Screen name="cadastroContato" component={cadastroContato} />       
-        <Stack.Screen name="alteraContato" component={alteraContato} /> 
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown:false}} />
+        <Stack.Screen name="inicio" component={InicioScreen} options={{headerShown:false}} />
+        <Stack.Screen name="cadastro" component={cadastro} options={{headerShown:false}} />
+        <Stack.Screen name="login" component={login} options={{headerShown:false}} />
+        <Stack.Screen name="cadastroContato" component={cadastroContato} options={{headerShown:false}} />       
+        <Stack.Screen name="alteraContato" component={alteraContato} options={{headerShown:false}} /> 
         <Stack.Screen name="listaContato" component={listaContato} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
