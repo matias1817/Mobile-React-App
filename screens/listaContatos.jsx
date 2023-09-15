@@ -1,40 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, } from 'react-native';
 import { Input,  Avatar, Button  } from 'react-native-elements';
 import { ListItem, Header } from 'react-native-elements'
 import { FAB } from 'react-native-elements';
+import { useIsFocused } from '@react-navigation/native';
 
 
 
-const list = [
-    {
-      name: 'Zé Cunha',
-      avatar_url: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
-      subtitle: '81 96854-3456',
-      email: 'zé@gmail.com'
-    },
-    {
-      name: 'Ednalvison Silva',
-      avatar_url: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
-      subtitle: '87 93658-1634',
-      email:"ednalvinhoh@gmail.com"
-    },
-    {
-        name: 'Jucilene Silva',
-        avatar_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOfg89HB0svXVhC2QvP0ixVKdb1qhYVpjDLhiqqmTtZNiMxNBCS4Q48Vn9_nB8VDCC8wU&usqp=CAU',
-        subtitle: '87 93658-1634',
-        email:"jucilene@hotmail"
-      },{
-        name: 'Jessica Normanda',
-        avatar_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOfg89HB0svXVhC2QvP0ixVKdb1qhYVpjDLhiqqmTtZNiMxNBCS4Q48Vn9_nB8VDCC8wU&usqp=CAU',
-        subtitle: '87 93658-1634',
-        email:"jessicaN@gmail.com"
-      }
-    
-  ]
 
 function listaContato({navigation}) {
+  
+ const [list, SetList] = useState([])
+const isFocused = useIsFocused()
+ useEffect(() => {
+
+  axios.get('http://localhost:3000/contato')
+  .then(function (response) {
+  console.log(response);
+    SetList(response.data)
+  }).catch(function (error) {
+  console.log(error);
+  
+  });
+}, [isFocused])
+  
+
+     
+    
     return (
 
 
@@ -46,12 +40,12 @@ function listaContato({navigation}) {
 {
 list.map((l, i) => (
       <ListItem key={i} bottomDivider onPress={() =>
-        navigation.navigate('alteraContato', { nome: l.name, fone: l.subtitle,email: l.email }) }>
+        navigation.navigate('alteraContato', {id:l.id, nome: l.nome, telefone: l.telefone,email: l.email,avatar_url: l.avatar_url }) }>
         <Avatar source={{uri: l.avatar_url}}  />
         
         <ListItem.Content > 
-          <ListItem.Title >{l.name}</ListItem.Title>
-          <ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle>
+          <ListItem.Title >{l.nome}</ListItem.Title>
+          <ListItem.Subtitle>{l.telefone}</ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>
     ))
