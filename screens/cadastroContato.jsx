@@ -13,7 +13,7 @@ export default function cadastroContato({navigation}) {
   const [ava, setAva] = useState();
 
   function inserirDados(){
-    axios.put('http://localhost:3000/contato', {
+    axios.post('http://localhost:3000/contato', {
     nome: nome,
     telefone: telefone,
     email: email,
