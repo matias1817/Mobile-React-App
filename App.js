@@ -9,7 +9,7 @@ import login from './screens/login';
 import cadastroContato from './screens/cadastroContato';
 import listaContato from './screens/listaContatos';
 import alteraContato from './screens/alteraContato';
-
+import upload from './screens/upload'
 
 
 const Stack = createNativeStackNavigator();
@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="login">
+      <Stack.Navigator initialRouteName="upload">
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown:false}} />
         <Stack.Screen name="inicio" component={InicioScreen} options={{headerShown:false}} />
         <Stack.Screen name="cadastro" component={cadastro} options={{headerShown:false}} />
@@ -25,6 +25,7 @@ function App() {
         <Stack.Screen name="cadastroContato" component={cadastroContato} options={{headerShown:false}} />       
         <Stack.Screen name="alteraContato" component={alteraContato} options={{headerShown:false}} /> 
         <Stack.Screen name="listaContato" component={listaContato} options={{headerShown:false}} />
+        <Stack.Screen name="upload" component={upload} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
